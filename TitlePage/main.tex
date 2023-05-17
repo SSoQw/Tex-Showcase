@@ -1,0 +1,91 @@
+\documentclass{report}
+
+\usepackage[top=1in,bottom=1in,right=0.75in,left=1.33in]{geometry}
+\usepackage{afterpage}
+\usepackage{pagecolor}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{csvsimple}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tasks}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames]{plex-otf} 
+\usepackage{subcaption}
+\usepackage{mwe}
+
+\lhead{}
+\chead{}
+\rhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+
+
+
+%Commands
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\titleformat{\chapter}
+  {\Huge\bfseries}{\thechapter}{1em}{}[{\titlerule[.08cm]}]
+\titleformat{\section}
+  {\Huge\bfseries}{\thesection}{1em}{}[{\titlerule[.08cm]}]
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries\itshape}{\thesubsection}{1em}{}[{\titlerule}]
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{1em}{}
+
+%Colors
+\definecolor{WITRed}{rgb}{0.784, 0.063, 0.016}  
+\definecolor{WITYellow}{rgb}{1, 0.820, 0}
+\definecolor{WITGrey}{rgb}{0.26275,  0.26275, 0.27059}
+
+\pagestyle{fancy}
+\begin{document}
+\newgeometry{margin=0in}
+%Title time
+
+\begin{titlepage}
+    \pagecolor{WITGrey}\afterpage{\nopagecolor}
+    \thispagestyle{empty}
+    \hspace*{-.605cm}
+    \begin{minipage}[t][.99\paperheight][b]{1.33 in}
+        \textcolor{WITYellow}{\rule{1.331 in}{2\paperheight}}
+    \end{minipage}\begin{minipage}{.53 in}
+    \textcolor{WITGrey}{a}
+    \end{minipage}\begin{minipage}[t]{6.2 in}
+        \vspace*{.49 in}
+        \hspace{\fill}  \includegraphics*[width=3.25in]{WIT-Full-Wordmark_White_PNG.png}\\[35ex]
+        \fontsize{45pt}{12pt}\selectfont
+        \textcolor{WITYellow}{\bfseries{Title}}\\[1.25ex]
+        \fontsize{25pt}{12pt}\selectfont
+        \textcolor{WITYellow}{Tagline}\\[.75ex]
+        \textcolor{WITYellow}{\rule{\textwidth}{.15cm}}\\[2ex]
+        \textcolor{white}{\mdseries{\href{mailto:example@domain.com}{Last, First;}}}\\[1.5ex]
+        \fontsize{15pt}{12pt}\selectfont
+        \textcolor{white}{Instructed by Supervisor}\\[.5ex]
+        \textcolor{white}{Department of Department}\\[20ex]
+        \fontsize{16pt}{12pt}\selectfont
+        \textcolor{white}{\mdseries{SEMESTER year \hspace*{\fill} {Project GitHub}}}\\[3ex]
+        \fontsize{11pt}{12pt}\selectfont
+        \textcolor{white}{Project purpose blurb}
+\end{minipage}\begin{minipage}{0.41 in}
+
+\end{minipage}
+\end{titlepage}
+
+\restoregeometry
+\end{document}
