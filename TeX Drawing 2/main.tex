@@ -1,0 +1,163 @@
+\documentclass[11 pt, letterpaper]{exam}
+%\printanswers
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{enumerate, mathrsfs}
+\usepackage{pstricks-add, pst-plot}
+\usepackage{auto-pst-pdf}
+
+\newcommand{\suchthat}{\,\Big{|}\,}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+
+
+\firstpageheader{}{}{}
+\begin{document}
+
+\begin{questions}
+\question Consider the function $f(x) = \sqrt{5x}$ on $[4,6]$.  It is clear that $p=5$ is a fixed point of $f$.  
+\begin{parts}
+\part[10] Check all of the conditions of Theorem 2.8 and justify a conclusion that the iterative sequence $\{p_n\}$ (for $p_0\in [4,6]$ and for $p_0\not=5$) converges linearly to $p=5$.
+\vskip 2ex
+
+First we must check that $f(x)$ is continuous on $[4,6]$, such that $\forall x \in[4,6], f(x)\in[4,6]$. 
+\vskip 1ex
+\begin{center}
+$f(x) = \sqrt{5x}$
+\vskip 2ex
+    \begin{tabular}{c c c}
+        $f(4) = \sqrt{5\times4}$ & \text{    }& $f(6) = \sqrt{5\times6}$ \\
+          $ = 2\sqrt{5}$ & & $ = \sqrt{30}$ \\
+           & $f(x) \in [2\sqrt{5},\sqrt{30}]$ & \\
+    \end{tabular}\\
+\end{center}
+\vskip 1ex
+$$\boxed{\therefore \forall x \in[4,6],~f(x) \in [4,6]}$$
+
+\vskip 2ex
+\psset{unit=3.2cm}
+\begin{center}
+    \begin{pspicture}[showgrid](3,3)(7,7)
+        %Blue line, f(x) = sqrt(5x)
+        \psplot[linewidth=1.5pt,linecolor=blue,algebraic]{+4}{+6}{sqrt(5*x)}
+        \psplot[linestyle=dashed, linewidth=1.5pt,linecolor=blue,algebraic]{+3}{+4}{sqrt(5*x)}
+        \psplot[linestyle=dashed, linewidth=1.5pt,linecolor=blue,algebraic]{+6}{+7}{sqrt(5*x)}
+        %Red line, f(x) = x
+        \psline[linestyle=dashed, linewidth=1.5pt, linecolor=red](3,3)(4,4)
+        \psline[linestyle=dashed, linewidth=1.5pt, linecolor=red](6,6)(7,7)
+        \psline[linewidth=1.5pt, linecolor=red](4,4)(6,6)
+        %Black Box
+        \psline[linewidth=1.5pt](4,4)(4,6)
+        \psline[linewidth=1.5pt](4,4)(6,4)
+        \psline[linewidth=1.5pt](4,6)(6,6)
+        \psline[linewidth=1.5pt](6,4)(6,6) 
+    \end{pspicture}
+\vskip 2ex
+The blue line is the function $f(x) = \sqrt{5x}$ and the red line is the function $f(x)=x$
+\vskip 2ex
+\end{center}
+A we will see later, the derivative of thus function is never less than zero on [4,6], the function is continous and increasing. Thus the first condition of Theorem 2.8 is met.
+\pagebreak
+
+Now we must find a positive constant $k \suchthat k<1 \wedge \forall x\in(4,6),~\mid f'(x)\mid \leq k$. 
+
+\begin{center}
+$f'(x) = \frac{\sqrt{5}}{2\sqrt{x}}$
+\vskip 2ex
+    \begin{tabular}{c c c}
+        $f'(4) = \frac{\sqrt{5}}{2\sqrt{4}}$ & \text{    }& $f'(6) = \frac{\sqrt{5}}{2\sqrt{6}}$ \\
+          $ = \frac{\sqrt{5}}{4}$ & & $ = \frac{\sqrt{30}}{12}$ \\
+           & $f'(x) \in (\frac{\sqrt{30}}{12},\frac{\sqrt{5}}{4})$ &
+    \end{tabular}\\
+\end{center}
+
+Thus, 
+$$\frac{\sqrt{30}}{12}<f'(x)<\frac{\sqrt{5}}{4}\leq k<1$$
+
+$$\boxed{\therefore  k \in [\frac{\sqrt{5}}{4},1)}$$
+\vskip 2ex
+\psset{unit=3.75cm}
+\begin{center}
+    \begin{pspicture}[showgrid](3,-1)(7,2)
+        %Blue line, f'(x) = sqrt(5)/(2*sqrt(x))
+        \psplot[linewidth=1.5pt,linecolor=blue,algebraic]{+4}{+6}{sqrt(5)/(2*sqrt(x))}
+        \psplot[linestyle=dashed, linewidth=1.5pt,linecolor=blue,algebraic]{+3}{+4}{sqrt(5)/(2*sqrt(x))}
+        \psplot[linestyle=dashed, linewidth=1.5pt,linecolor=blue,algebraic]{+6}{+7}{sqrt(5)/(2*sqrt(x))}
+        %Fill for inequality
+        \pscustom[fillstyle=solid,fillcolor=red!75,linestyle=none,algebraic]{
+        \psline(4,0.559016994)(4,1)
+        \psline(6,1)(6,0.559016994)
+        }
+        \psline[linewidth=1.5pt, linecolor=red](4,0.559016994)(6,0.559016994)
+        \psline[linestyle=dashed,
+        linewidth=1.5pt,linecolor=red](6,0.559016994)(7,0.559016994)
+        \psline[linestyle=dashed, linewidth=1.5pt,linecolor=red](3,0.559016994)(4,0.559016994)
+        %Black Box
+        \psline[linewidth=1.5pt](4,0)(4,1)
+        \psline[linewidth=1.5pt](4,0)(6,0)
+        \psline[linewidth=1.5pt](4,1)(6,1)
+        \psline[linewidth=1.5pt](6,0)(6,1)
+    \end{pspicture}
+\vskip 2ex
+The blue line is the function $f'(x)$ and the red shaded area is $\mid f'(x) \mid \leq k < 1$.
+\end{center}
+\vskip 1ex
+Thus the second condition of Theorem 2.8 is met. Since $\forall x \in [4,6],~f'(x) \neq 0$ any $x\in [4,6],~x\neq5$ will converge linearly to unique fixed point $x=5$.  
+\pagebreak
+
+\part[10] Generate a table including values of $p_i$ and $\frac{|p_i-5|}{|p_{i-1}-5|^1}$ for $0\leq i\leq 20$.
+\begin{center}
+    \csvautotabular{T3.txt}
+\end{center}
+\part[5] Estimate the asymptotic error constant $\lambda$.
+$$\boxed{\lambda = \frac{1}{2}}$$
+\end{parts}
+\question Show that the sequences below converge linearly to $p=0$.  How many terms are required before $|p_n-p|<5\times 10^{-2}$?
+\begin{parts}
+\part[10] $\displaystyle{p_n=\frac{1}{n}}$
+$$\lim_{n\to\infty} \frac{\mid p_{n+1}\mid}{\mid p_n \mid^{\alpha}} = \lim_{n\to\infty}\frac{\mid \frac{1}{n+1}\mid}{\mid \frac{1}{n} \mid^{\alpha}} = \lim_{n\to\infty} \frac{n^\alpha}{n+1}$$
+We will have convergence for $\alpha = 1$, but not $\alpha = 2$ so this sequence will converge linearly to 0.
+\vskip 1ex
+Terms to be within $5\times 10^{-2}$
+$$\mid p_n-p \mid < 5\times10^{-2} \rightarrow \frac{1}{n}<5\times10^{-2} \rightarrow \boxed{n > 20}$$
+\pagebreak
+\part[10] $\displaystyle{p_n=\frac{1}{n^2}}$
+$$\lim_{n\to\infty} \frac{\mid p_{n+1}\mid}{\mid p_n \mid^{\alpha}} = \lim_{n\to\infty}\frac{\mid \frac{1}{(n+1)^2}\mid}{\mid \frac{1}{n^2} \mid^{\alpha}} = \lim_{n\to\infty} (\frac{n^\alpha}{n+1})^2$$
+Similarly to part a, will have convergence for $\alpha = 1$, but not $\alpha = 2$ so this sequence will also converge linearly to 0.
+\vskip 1ex
+Terms to be within $5\times 10^{-2}$
+$$\mid p_n-p \mid < 5\times10^{-2} \rightarrow \frac{1}{n^2}<5\times10^{-2} \rightarrow 20 < n^2 \rightarrow \boxed{n > \sqrt{20} \approx 4.47214}$$
+\end{parts}
+\question[10] Show that $\displaystyle{p_n=\left(\frac{1}{10}\right)^{2^{^n}}}$ converges to 0 quadratically.
+$$\lim_{n\to\infty} \frac{\mid p_{n+1}\mid}{\mid p_n \mid^{\alpha}} = \lim_{n\to\infty} \frac{\mid 10^{-2^{n+1}}\mid}{\mid 10^{-2^{n}} \mid^{\alpha}} = \lim_{n\to\infty} \frac{10^{-2^{n}2}}{10^{-2^{n}\alpha}}$$
+We will have convergence for $\alpha = 1$ as well as $\alpha = 2$, but not $\alpha = 3$, so this this sequence will quadratically to 0.
+\question 
+\begin{parts}
+\part[10] Write down the formula for a sequence $p_n$ that converges to $p=0$ with order $\alpha=3$.
+$$p_n = 100^{-3^{n}}$$
+
+\part[5] Generate the first 5 terms of this sequence.
+\begin{center}
+    \begin{tabular}{|c | c|}
+        \hline
+        $n$ & $p_n$ \\
+        \hline
+        $0$ & $1\times 10^{-2}$ \\
+        $1$ & $1\times 10^{-6}$ \\
+        $2$ & $1\times 10^{-18}$ \\
+        $3$ & $1\times 10^{-54}$ \\
+        $4$ & $1\times 10^{-162}$ \\
+        \hline
+    \end{tabular}
+\end{center}
+\end{parts}
+\end{questions}
+\end{document}

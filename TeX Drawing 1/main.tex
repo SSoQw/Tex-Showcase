@@ -1,0 +1,208 @@
+%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate, mathrsfs}
+\usepackage{pstricks-add, pst-plot}
+\usepackage{auto-pst-pdf}
+
+\makeatletter
+
+\usepackage[letterpaper,body={6.5in,9in}, head=34pt, foot=70pt]{geometry}
+\usepackage{fancyhdr}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+
+\pagestyle{fancy}
+\headheight 35pt
+
+\rhead{}
+\chead{}
+\lhead{}
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\rfoot{\thepage}
+\cfoot{}
+\lfoot{}
+
+\usepackage{multicol}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\begin{enumerate}
+\item Consider the following linear programming problem
+\begin{align*}
+\text{minimize}\ \ 4y_{1}+7y_{2}\\
+\text{subject to }\ \ 2y_{1}+y_{2} & \geq5\\
+\ 3y_{1}+2y_{2} & \geq2\\
+\ y_{1}+3y_{2} & \geq5\\
+y_{1},y_{2} & \geq0
+\end{align*}
+Solve this problem using the graphical method. (Hint: determine the feasible region, and evaluate the corner points using algebra. Notice this is a minimization problem)
+
+\vskip 2ex
+We can find our feasible region by graphing the equalities portion of the inequalities.
+\psset{unit=1.4cm}
+%(y1,y2)
+\begin{center}
+    \begin{pspicture}[showgrid](0,0)(8,8)
+        %Axis
+        \psline[linewidth=1.5pt]{<->}(0,-0.3)(0,8.2)
+        \psline[linewidth=1.5pt]{<->}(-0.3,0)(8.2,0)
+        %Magenta line & fill, 2y1 + y2 >= 5
+        \psline[linewidth=1.5pt,linecolor=magenta!75]{<->}(0,5)(2.5,0)
+        %Black line & fill, 2y1 + y2 >= 5
+        \psline[linewidth=1.5pt,linecolor=black!75]{<->}(0,1)(0.6666666667,0)
+        %Orange line & fill, 2y1 + y2 >= 5
+        \psline[linewidth=1.5pt,linecolor=orange!75]{<->}(0,1.6666666667)(5,0)
+        %Blue line & fill, y2 >= 0
+        \psline[linewidth=1.5pt,linecolor=blue!75]{<->}(0,-0.2)(0,8.1)
+        %Red line, y1 >= 0
+        \psline[linewidth=1.5pt,linecolor=red!75]{<->}(-0.2,0)(8.1,0)
+    \end{pspicture}
+\vskip 2ex
+Since everything is greater than or equal to, we know the feasablie region is above all the lines, so our solution is inside the following region:
+
+    \begin{pspicture}[showgrid](0,0)(8,8)
+        %Axis
+        \psline[linewidth=1.5pt]{<->}(0,-0.3)(0,8.2)
+        \psline[linewidth=1.5pt]{<->}(-0.3,0)(8.2,0)
+        %Magenta line & fill, 2y1 + y2 >= 5
+        \psline[linewidth=1.5pt,linecolor=magenta!75](0,5)(2,1)
+        %Orange line & fill, 2y1 + y2 >= 5
+        \psline[linewidth=1.5pt,linecolor=orange!75](2,1)(5,0)
+        %Blue line & fill, y2 >= 0
+        \psline[linewidth=1.5pt,linecolor=blue!75]{->}(0,5)(0,8.1)
+        %Red line, y1 >= 0
+        \psline[linewidth=1.5pt,linecolor=red!75]{->}(5,0)(8.1,0)
+        \rput(0,5.3){Corner 1}
+        \pscircle[fillstyle=solid, fillcolor=black](0,5){.075}
+        \rput(2,1.3){Corner 2}
+        \pscircle[fillstyle=solid, fillcolor=black](2,1){.075}
+        \rput(5,0.3){Corner 3}
+        \pscircle[fillstyle=solid, fillcolor=black](5,0){.075}
+    \end{pspicture}
+\vskip 2ex
+
+
+\vskip 2ex
+\end{center}
+From here we can test the corner points of our feasible region, which occur at: $(0,5)$, $(2,1)$, and $(5,0)$. Substituting: $4(5)+7(0)=20$, $4(2)+7(1)=15$, and $4(0)+7(5)=35$, $min(20,15,35)=15$ thus the minimized solution is $\boxed{15}$
+\pagebreak
+\item Consider the following vectors and matrix:
+\begin{align*}
+\mathbf{x}=\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{array}\right] & \quad\mathbf{c}=\left[\begin{array}{c}
+1\\
+5\\
+3\\
+7\\
+5
+\end{array}\right]\quad A=\left[\begin{array}{ccccc}
+1 & 0 & -2 & 4 & 5\\
+3 & 1 & 1 & 2 & 4\\
+0 & 1 & -1 & 2 & 2
+\end{array}\right]
+\end{align*}
+Perform the following operations:
+
+\begin{enumerate}
+\item $\mathbf{c}^{T}\mathbf{x}$\textbf{\vspace{1cm}}
+$$
+\mathbf{c}^{T} =
+\begin{bmatrix}
+1 & 5 & 3 & 7 & 5
+\end{bmatrix}
+$$
+$$
+\mathbf{c}^{T}\mathbf{x} = 
+\begin{bmatrix}
+1 & 5 & 3 & 7 & 5
+\end{bmatrix}
+\times
+\begin{bmatrix}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{5}
+\end{bmatrix}
+=\boxed{
+\begin{bmatrix}
+x_1 & 5x_2 & 3x_3 & 7x_4 & 5x_5
+\end{bmatrix}}
+$$
+\item $A\mathbf{c}$\textbf{\vspace{1cm}}
+
+$$
+\begin{bmatrix}
+1 & 0 & -2 & 4 & 5\\
+3 & 1 & 1 & 2 & 4\\
+0 & 1 & -1 & 2 & 2
+\end{bmatrix}
+\times
+\begin{bmatrix}
+1\\
+5\\
+3\\
+7\\
+5
+\end{bmatrix}
+=
+\begin{bmatrix}
+1+0-6+28+25\\
+3+5+3+14+20\\
+0+5-3+14+10
+\end{bmatrix}
+=\boxed{
+\begin{bmatrix}
+48\\
+45\\
+26
+\end{bmatrix}}
+$$
+
+\end{enumerate}
+\pagebreak
+\item Consider the following optimization problem:
+\begin{align*}
+\text{maximize}\ \ 5x_{1}+2x_{2}+5x_{3}\\
+\text{subject to }\ \ 2x_{1}+3x_{2}+x_{3} & \leq4\\
+\ x_{1}+2x_{2}+3x_{3} & \leq7\\
+x_{1},x_{2},x_{3} & \geq0
+\end{align*}
+Write the problem above in matrix-vector notation.
+\vskip 2ex
+First we must rewrite the conditions of the problem, for all feasible solutions: $x_1, x_2, x_3$, the value on the LHS is at most the value on the RHS, so we have that:
+
+$$ 2x_1 + 3x_2 + x_3 + s_1 = 4 $$
+$$ x_1 + 2x_2 + 3x_3 + s_2 = 7 $$
+
+Since we are maximizing, the solution function becomes:
+
+$$5x_1-2x_2-5x_3+z=0$$
+
+Thus, the final matrix is:
+$$\boxed{
+\begin{bmatrix}
+x_1 & x_2 & x_3 & s_1 & s_2 & z &\vline& C\\
+\hline
+2 & 3 & 1 & 1 & 0 & 0 & \vline & 4\\
+1 & 2 & 3 & 0 & 1 & 0 & \vline & 7\\
+-5 & -2 & -5 & 0 & 0 & 1 & \vline & 0
+\end{bmatrix}}
+$$
+\end{enumerate}
+
+\end{document}
