@@ -1,0 +1,128 @@
+\documentclass[oneside]{book}
+
+\usepackage{lipsum}
+\usepackage[top=1in,bottom=1in,right=0.75in,left=1.33in]{geometry}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{csvsimple}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tasks}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage[pagecolor={white},nopagecolor={white}]{pagecolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cancel}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames]{plex-otf} %
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+
+
+\lhead{\textbf{Net-Zero New England}}
+\chead{}
+\rhead{}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+
+
+
+%Commands
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\titleformat{\chapter}
+  {\Huge\bfseries}{\thechapter}{1em}{}[{\titlerule[.08cm]}\vspace*{-1ex}]
+\titlespacing{\chapter}{0pt}{-20pt}{1cm}
+\titleformat{\section}
+  {\Huge\bfseries}{\thesection}{1em}{}[{\titlerule[.08cm]}]
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries\itshape}{\thesubsection}{1em}{}[{\titlerule}]
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{1em}{}
+
+%Colors
+\definecolor{WITRed}{rgb}{0.784, 0.063, 0.016}  
+\definecolor{WITYellow}{rgb}{1, 0.820, 0}
+\definecolor{WITGrey}{rgb}{0.26275,  0.26275, 0.27059}
+
+\pagestyle{fancy}
+\begin{document}
+\newgeometry{margin=0in}
+%Title time
+
+\begin{titlepage}
+    \pagecolor{WITGrey}\afterpage{\pagecolor{white}}
+    \thispagestyle{empty}
+    \hspace*{-.605cm}
+    \begin{minipage}[t][.99\paperheight][b]{1.33 in}
+        \textcolor{WITYellow}{\rule{1.331 in}{2\paperheight}}
+    \end{minipage}\begin{minipage}{.53 in}
+    \textcolor{WITGrey}{a}
+    \end{minipage}\begin{minipage}[t]{6.2 in}
+        \vspace*{.49 in}
+        \hspace{\fill}  \href{www.wit.edu}{\includegraphics*[width=3.25in]{WIT-Full-Wordmark_White_PNG.png}}\\[35ex]
+        \fontsize{55pt}{12pt}\selectfont
+        \textcolor{WITYellow}{\bfseries{Project Title}}\\[1.25ex]
+        \fontsize{25pt}{12pt}\selectfont
+        \textcolor{WITYellow}{Tag Line}\\[.75ex]
+        \textcolor{WITYellow}{\rule{\textwidth}{.15cm}}\\[2ex]
+        \textcolor{white}{\mdseries{Last, First;}}\\[1.5ex]
+        \fontsize{15pt}{12pt}\selectfont
+        \textcolor{white}{Project sponsor or department}\\[.5ex]
+        \textcolor{white}{Advised by Advisor}\\[20ex]
+        \fontsize{16pt}{12pt}\selectfont
+        \textcolor{white}{\mdseries{Semester Year \hspace*{\fill} {Project Repository}}}\\[3ex]
+        \fontsize{10pt}{12pt}\selectfont
+        \textcolor{white}{Purpose blurb, why does this project exist?}
+\end{minipage}\begin{minipage}{0.41 in}
+
+\end{minipage}
+\end{titlepage}
+
+\restoregeometry
+\frontmatter
+    \input{Chap0_Frontmatter/Copyright.tex}
+    \input{Chap0_Frontmatter/Abstract.tex}
+    \fontsize{10pt}{12pt}\selectfont
+    \tableofcontents
+
+\setstretch{1.25}
+\fontsize{12pt}{12pt}\selectfont
+\captionsetup{font=Large,labelfont=Large}
+\mainmatter
+    \input{Chap1_Introduction/Introduction.tex}
+    \input{Chap2_BroadBackground/BroadBackground}
+    \input{Chap3_FocusedBackground/FocusedBackground}
+    \input{Chap4_PlannedWork/PlannedWork}
+    \input{Chap5_WorkAcomplished/WorkAcomplished}
+    \input{Chap6_WorkResults/WorkResults}
+    \input{Chap7_Discussion/Discussion.tex}
+    \input{Chap8_Conclusion/Conclusion.tex}
+
+
+\setstretch{1}
+\fontsize{10pt}{12pt}\selectfont
+\backmatter
+\bibliographystyle{plain}
+\include{Chap9_Future_Work/FutureWork.tex}
+\bibliography{Chap10_References/references.bib}
+\include{Chap11_Source_Code/SourceCode.tex}
+
+\end{document}
